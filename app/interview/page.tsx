@@ -48,7 +48,7 @@ export default function InterviewPage() {
   };
 
   return (
-    <div className="container py-10 px-4 max-w-4xl min-h-[calc(100vh-4rem)] flex flex-col">
+    <div className="container py-10 px-4 max-w-4xl min-h-[calc(100vh-4rem)] flex flex-col mx-auto">
       <div className="mb-8 space-y-2 text-center md:text-left">
         <h1 className="text-3xl font-bold tracking-tight">면접 트레이닝</h1>
         <p className="text-muted-foreground">

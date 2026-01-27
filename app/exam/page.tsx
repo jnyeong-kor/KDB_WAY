@@ -142,7 +142,7 @@ export default function ExamPage() {
   }
 
   return (
-    <div className="container max-w-2xl py-10 px-4 flex flex-col min-h-[calc(100vh-4rem)]">
+    <div className="container max-w-2xl py-10 px-4 flex flex-col min-h-[calc(100vh-4rem)] mx-auto">
       <div className="mb-8 space-y-2">
         <div className="flex justify-between items-center text-sm text-muted-foreground">
           <span>Question {currentQuestionIndex + 1} / {examQuestions.length}</span>

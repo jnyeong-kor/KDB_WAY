@@ -20,7 +20,7 @@ export default function Home() {
         {/* Grid Pattern */}
         <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] mask-image-gradient-to-b"></div>
 
-        <div className="container px-4 md:px-6 space-y-8 relative z-10 text-center">
+        <div className="container px-4 md:px-6 space-y-8 relative z-10 text-center mx-auto">
           <div className="flex justify-center animate-in fade-in slide-in-from-bottom-4 duration-700">
              <Badge variant="outline" className="px-6 py-2 text-sm md:text-base border-primary/30 bg-white/50 backdrop-blur-md text-primary shadow-sm">
                <span className="relative flex h-2 w-2 mr-2">
@@ -60,7 +60,7 @@ export default function Home() {
 
       {/* Stats Section - Glassmorphism */}
       <section className="py-12 relative z-20 -mt-20">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md:px-6 mx-auto">
           <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-800 shadow-2xl rounded-3xl p-10 md:p-14">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-slate-200 dark:divide-slate-800">
               <div className="space-y-2 group">
@@ -88,7 +88,7 @@ export default function Home() {
       <KdbInfoSection />
 
       {/* Features Section - 3D Cards */}
-      <section className="container px-4 md:px-6 py-24 md:py-32">
+      <section className="container px-4 md:px-6 py-24 md:py-32 mx-auto">
         <div className="mb-16 md:text-center space-y-6">
           <Badge variant="secondary" className="mb-4 text-[#00366D] bg-blue-50 hover:bg-blue-100 px-4 py-1.5 rounded-full text-sm font-semibold mx-auto w-fit block">
             Success Roadmap

@@ -10,7 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 export default function RecruitPage() {
   return (
-    <div className="container py-10 px-4 max-w-5xl">
+    <div className="container py-10 px-4 max-w-5xl mx-auto">
       <div className="mb-8 space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">채용/후기 게시판</h1>
         <p className="text-muted-foreground">

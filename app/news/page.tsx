@@ -149,7 +149,7 @@ export default function NewsPage() {
   const categories = Array.from(new Set(news.map((item) => item.category)));
 
   return (
-    <div className="container px-4 py-8 md:py-12">
+    <div className="container px-4 py-8 md:py-12 mx-auto">
       <div className="flex flex-col space-y-4 md:space-y-6">
         <div className="flex flex-col space-y-2">
           <div className="flex justify-between items-start md:items-center flex-col md:flex-row gap-4">

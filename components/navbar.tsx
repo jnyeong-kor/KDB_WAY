@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, Briefcase, PenTool, MessageSquare, Home, Newspaper, GraduationCap, Building2 } from "lucide-react";
+import { Menu, Briefcase, PenTool, MessageSquare, Home, Newspaper, GraduationCap, Building2, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -46,6 +46,12 @@ const navItems = [
     description: "실전 모의 면접",
   },
   {
+    title: "AI 자소서 첨삭",
+    href: "/resume-edit",
+    icon: FileText,
+    description: "AI 자기소개서 분석 및 첨삭",
+  },
+  {
     title: "뉴스/이슈",
     href: "/news",
     icon: Newspaper,
@@ -59,7 +65,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center px-4">
+      <div className="container flex h-16 items-center px-4 mx-auto">
         {/* Desktop Logo & Nav */}
         <div className="mr-4 hidden md:flex items-center">
           <Link href="/" className="mr-8 flex items-center space-x-2">

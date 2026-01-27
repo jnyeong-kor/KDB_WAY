@@ -7,7 +7,7 @@ import Link from "next/link";
 export function KdbInfoSection() {
   return (
     <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
           <div className="space-y-4 max-w-2xl">
             <Badge variant="outline" className="border-primary/50 text-primary bg-primary/5">

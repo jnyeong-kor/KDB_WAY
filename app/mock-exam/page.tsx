@@ -59,8 +59,10 @@ export default function MockExamPage() {
         correctCount++;
       }
     });
-    setScore(Math.round((correctCount / mockQuestions.length) * 100));
+    const finalScore = Math.round((correctCount / mockQuestions.length) * 100);
+    setScore(finalScore);
     setExamStatus("result");
+    localStorage.setItem("kdb_mock_exam_score", finalScore.toString());
   };
 
   const currentQuestion = mockQuestions[currentQuestionIndex];
@@ -69,7 +71,7 @@ export default function MockExamPage() {
   // Intro Screen
   if (examStatus === "intro") {
     return (
-      <div className="container max-w-4xl py-12 px-4">
+      <div className="container max-w-4xl py-12 px-4 mx-auto">
         <Card className="w-full border-t-4 border-t-primary shadow-lg">
           <CardHeader className="text-center pb-8 pt-10">
             <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">
