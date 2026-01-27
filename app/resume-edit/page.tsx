@@ -407,14 +407,14 @@ export default function ResumeEditPage() {
                                         <span>서류 전형 예측 (자소서 + 스펙)</span>
                                         <span>{Math.round((prob.resume + prob.spec) / 2)}%</span>
                                     </div>
-                                    <Progress value={(prob.resume + prob.spec) / 2} className="h-2 bg-blue-900/30" indicatorClassName="bg-yellow-400" />
+                                    <Progress value={(prob.resume + prob.spec) / 2} className="h-2 bg-blue-900/30" />
                                 </div>
                                 <div className="space-y-1">
                                     <div className="flex justify-between text-sm font-medium text-blue-100">
                                         <span>필기 전형 예측 (모의고사 기반)</span>
                                         <span>{mockExamScore}%</span>
                                     </div>
-                                    <Progress value={mockExamScore} className="h-2 bg-blue-900/30" indicatorClassName="bg-green-400" />
+                                    <Progress value={mockExamScore} className="h-2 bg-blue-900/30" />
                                 </div>
                             </div>
 
