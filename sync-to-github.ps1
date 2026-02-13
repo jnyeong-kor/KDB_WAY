@@ -33,3 +33,4 @@ if (-not $status) {
 & $GIT_PATH push origin $currentBranch
 
 Write-Host ">>> Upload Complete! ($currentBranch)" -ForegroundColor Green
+Write-Host "`n>>> AI Codex의 분석 결과를 확인하려면 '.\check-codex-status.ps1'을 실행하세요." -ForegroundColor Cyan
