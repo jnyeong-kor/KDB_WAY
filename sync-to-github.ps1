@@ -1,27 +1,35 @@
-# GitHub 자동 동기화 스크립트
-# 사용법: .\sync-to-github.ps1 "커밋 메시지"
-
+# GitHub Sync Script
 param (
-    [string]$CommitMessage = "Trae 자동 업데이트: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
+    [string]$CommitMessage = "Trae Auto Update: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')"
 )
 
 $GIT_PATH = "C:\Program Files\Git\cmd\git.exe"
 
-Write-Host ">>> GitHub에 변경 사항 업로드 중..." -ForegroundColor Cyan
+# 0. Check Remote & Branch
+$remoteCheck = & $GIT_PATH remote
+if (-not $remoteCheck) {
+    Write-Host "Error: No remote origin found. Run ./scripts/connect-github.sh first." -ForegroundColor Red
+    exit
+}
 
-# 1. 변경 사항 추가
+$currentBranch = & $GIT_PATH rev-parse --abbrev-ref HEAD
+Write-Host "Branch detected: $currentBranch" -ForegroundColor Gray
+
+Write-Host ">>> Uploading changes to GitHub..." -ForegroundColor Cyan
+
+# 1. Add changes
 & $GIT_PATH add .
 
-# 2. 커밋
+# 2. Commit
 $status = & $GIT_PATH status --porcelain
 if (-not $status) {
-    Write-Host ">>> 변경 사항이 없습니다." -ForegroundColor Yellow
+    Write-Host "No changes to commit." -ForegroundColor Yellow
     exit
 }
 
 & $GIT_PATH commit -m "$CommitMessage"
 
-# 3. 푸시
-& $GIT_PATH push origin main
+# 3. Push
+& $GIT_PATH push origin $currentBranch
 
-Write-Host ">>> 업로드 완료!" -ForegroundColor Green
+Write-Host ">>> Upload Complete! ($currentBranch)" -ForegroundColor Green
