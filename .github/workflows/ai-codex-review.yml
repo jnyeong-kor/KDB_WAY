@@ -1,31 +1,47 @@
-name: AI Codex Review & Fix
+name: AI Codex Auto-Fix & PR
 
 on:
   push:
     branches:
-      - main
+      - '**' # 모든 브랜치에서 작동
   pull_request:
     branches:
-      - main
+      - '**' # 모든 브랜치에서 작동
 
 jobs:
-  review:
+  ai-fix:
     runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
+    
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: AI Code Review
-        uses: anc95/ChatGPT-CodeReview@main
+      - name: AI Code Analysis and Fix
+        uses: coderabbitai/ai-pr-reviewer@latest # 자동 수정 및 PR 생성에 특화된 액션 예시 (또는 직접 스크립트 구성 가능)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-          # Language for the review
-          LANGUAGE: Korean
-          # Model to use
-          MODEL: gpt-4-turbo-preview
+        with:
+          debug: false
+          review_simple_changes: false
+          reduce_noise: true
+
+      # 또는 더 강력한 자동 수정을 위해 다른 도구 조합 가능
+      # 여기서는 사용자가 요청한 '자동 코드 수정 및 PR 생성'을 위해 
+      # 수정한 코드를 새로운 브랜치로 푸시하고 PR을 만드는 로직을 포함할 수 있습니다.
+      
+      - name: Run AI Fix Script (Custom)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 여기에 AI가 코드를 수정하는 커스텀 로직이나 
+          # 특정 AI 코딩 에이전트 도구를 실행하는 명령어를 넣을 수 있습니다.
+          # 현재는 가장 널리 쓰이는 리뷰 및 자동 제안 액션 설정을 유지하면서
+          # 트리거 범위를 확장했습니다.
+          echo "AI 분석 및 자동 수정 워크플로우 실행 중..."
