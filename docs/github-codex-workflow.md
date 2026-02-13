@@ -14,6 +14,8 @@ graph LR
 
 1.  **Trae IDE**: 사용자의 요청에 따라 코드를 작성하고 수정합니다.
 2.  **GitHub**: 수정된 코드가 `sync-to-github.ps1`을 통해 실시간으로 업로드됩니다.
+    - **AI 자동 동기화**: Trae AI가 사용자의 요청을 완료하면, 별도의 지시 없이도 `sync-to-github.ps1`을 자동으로 실행하여 변경 사항을 GitHub에 푸시합니다.
+    - **수동 동기화**: 필요한 경우 터미널에서 `.\sync-to-github.ps1 "메시지"`를 직접 실행할 수도 있습니다.
 3.  **AI Codex (GitHub Actions)**: 업로드된 코드를 AI가 스캔하여 오류 수정, 병목 현상 제거, 성능 최적화 제안을 남깁니다.
 4.  **Local Sync**: 사용자는 AI의 제안을 확인하고 `git pull`을 통해 로컬 환경에 반영합니다.
 
