@@ -1,8 +1,9 @@
 # KDB_WAY Project
-
 이 프로젝트는 산업은행(KDB) 채용 준비를 돕기 위한 AI 기반 분석 플랫폼입니다. Trae IDE와 GitHub, AI Codex를 연동한 자동화 워크플로우를 통해 개발되고 있습니다.
 
-## 🚀 Trae-GitHub-Codex 워크플로우
+> **Status:** Workflow Verification in Progress (Trae-GitHub-Codex)
+
+🚀 Trae-GitHub-Codex 워크플로우
 
 이 프로젝트는 실시간 코드 개선 시스템을 포함하고 있습니다.
 
