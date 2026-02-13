@@ -243,29 +243,29 @@ export default function MockExamPage() {
 
   // Progress Screen (Exam Mode)
   return (
-    <div className="container max-w-6xl py-6 px-4 h-[calc(100vh-80px)] flex flex-col">
+    <div className="container max-w-6xl py-4 md:py-6 px-4 min-h-[calc(100vh-80px)] md:h-[calc(100vh-80px)] flex flex-col">
       {/* Top Bar */}
-      <div className="flex justify-between items-center mb-6 bg-card p-4 rounded-lg shadow-sm border">
-        <div className="flex items-center gap-4">
-          <span className="text-xl font-bold text-primary">KDB Mock Exam</span>
-          <div className="hidden md:flex items-center gap-2 text-sm text-muted-foreground">
-            <Badge variant="outline">{currentQuestion.category}</Badge>
-            <span>문항 {currentQuestionIndex + 1} / {mockQuestions.length}</span>
+      <div className="flex justify-between items-center mb-4 md:mb-6 bg-card p-3 md:p-4 rounded-lg shadow-sm border sticky top-0 z-20">
+        <div className="flex items-center gap-3 md:gap-4">
+          <span className="text-lg md:text-xl font-bold text-primary whitespace-nowrap">KDB Mock</span>
+          <div className="flex items-center gap-2 text-xs md:text-sm text-muted-foreground">
+            <Badge variant="outline" className="hidden sm:inline-flex">{currentQuestion.category}</Badge>
+            <span className="whitespace-nowrap">{currentQuestionIndex + 1} / {mockQuestions.length}</span>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <div className={`flex items-center gap-2 font-mono text-xl font-bold ${timeLeft < 300 ? "text-red-500 animate-pulse" : "text-primary"}`}>
-            <Timer className="w-5 h-5" />
+        <div className="flex items-center gap-3 md:gap-4">
+          <div className={`flex items-center gap-1.5 md:gap-2 font-mono text-lg md:text-xl font-bold ${timeLeft < 300 ? "text-red-500 animate-pulse" : "text-primary"}`}>
+            <Timer className="w-4 h-4 md:w-5 h-5" />
             {formatTime(timeLeft)}
           </div>
-          <Button variant="destructive" size="sm" onClick={handleSubmit}>
-            제출하기
+          <Button variant="destructive" size="sm" onClick={handleSubmit} className="text-xs h-8 px-3">
+            제출
           </Button>
         </div>
       </div>
 
-      <div className="flex gap-6 flex-1 overflow-hidden">
-        {/* Sidebar (Question Map) - Hidden on mobile */}
+      <div className="flex flex-col md:flex-row gap-6 flex-1 md:overflow-hidden">
+        {/* Sidebar (Question Map) - Hidden on mobile, scrollable on tablet/desktop */}
         <Card className="hidden lg:flex w-64 flex-col h-full">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm">문제 목록</CardTitle>
@@ -301,53 +301,75 @@ export default function MockExamPage() {
         </Card>
 
         {/* Main Question Area */}
-        <Card className="flex-1 flex flex-col h-full shadow-md">
+        <Card className="flex-1 flex flex-col h-full shadow-md min-h-0">
           <CardHeader className="pb-4 border-b">
             <div className="flex justify-between items-start">
               <div className="space-y-1">
-                <span className="text-sm font-medium text-muted-foreground block mb-1">
+                <span className="text-xs md:text-sm font-medium text-muted-foreground block mb-1">
                   Question {currentQuestionIndex + 1}
                 </span>
-                <CardTitle className="text-xl md:text-2xl leading-relaxed">
+                <CardTitle className="text-lg md:text-2xl leading-relaxed">
                   {currentQuestion.question}
                 </CardTitle>
               </div>
             </div>
           </CardHeader>
-          <CardContent className="flex-1 overflow-y-auto pt-6 px-6 md:px-10">
+          <CardContent className="flex-1 overflow-y-auto pt-4 md:pt-6 px-4 md:px-10">
             <RadioGroup
               value={answers[currentQuestion.id]?.toString()}
               onValueChange={handleAnswer}
-              className="space-y-4"
+              className="space-y-3 md:space-y-4 pb-4"
             >
               {currentQuestion.options.map((option, idx) => (
-                <div key={idx} className={`flex items-start space-x-3 rounded-lg border p-4 transition-colors hover:bg-muted/50 cursor-pointer ${answers[currentQuestion.id] === idx ? "border-primary bg-primary/5" : ""}`}>
+                <div 
+                  key={idx} 
+                  onClick={() => handleAnswer(idx.toString())}
+                  className={`flex items-start space-x-3 rounded-lg border p-3 md:p-4 transition-colors hover:bg-muted/50 cursor-pointer ${answers[currentQuestion.id] === idx ? "border-primary bg-primary/5 ring-1 ring-primary/20" : ""}`}
+                >
                   <RadioGroupItem value={idx.toString()} id={`opt-${idx}`} className="mt-1" />
-                  <Label htmlFor={`opt-${idx}`} className="text-base font-normal leading-relaxed cursor-pointer w-full">
+                  <Label htmlFor={`opt-${idx}`} className="text-sm md:text-base font-normal leading-relaxed cursor-pointer w-full">
                     {option}
                   </Label>
                 </div>
               ))}
             </RadioGroup>
           </CardContent>
-          <CardFooter className="border-t p-6 flex justify-between bg-muted/10">
+          <CardFooter className="border-t p-4 md:p-6 flex justify-between bg-muted/10 sticky bottom-0 md:static z-10">
             <Button
               variant="outline"
-              onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
+              size="sm"
+              onClick={() => {
+                setCurrentQuestionIndex((prev) => Math.max(0, prev - 1));
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               disabled={currentQuestionIndex === 0}
+              className="h-9 px-4"
             >
-              <ChevronLeft className="mr-2 h-4 w-4" /> 이전
+              <ChevronLeft className="mr-1 h-4 w-4" /> 이전
             </Button>
             
-            {currentQuestionIndex < mockQuestions.length - 1 ? (
-              <Button onClick={() => setCurrentQuestionIndex((prev) => prev + 1)}>
-                다음 <ChevronRight className="ml-2 h-4 w-4" />
-              </Button>
-            ) : (
-              <Button onClick={handleSubmit} className="bg-green-600 hover:bg-green-700">
-                제출 및 결과 확인
-              </Button>
-            )}
+            <div className="flex gap-2">
+              {currentQuestionIndex < mockQuestions.length - 1 ? (
+                <Button 
+                  size="sm"
+                  onClick={() => {
+                    setCurrentQuestionIndex((prev) => prev + 1);
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                  className="h-9 px-4"
+                >
+                  다음 <ChevronRight className="ml-1 h-4 w-4" />
+                </Button>
+              ) : (
+                <Button 
+                  size="sm"
+                  onClick={handleSubmit} 
+                  className="bg-green-600 hover:bg-green-700 h-9 px-4"
+                >
+                  최종 제출
+                </Button>
+              )}
+            </div>
           </CardFooter>
         </Card>
       </div>
