@@ -13,12 +13,12 @@ export default function Home() {
         {/* Modern Gradient Background */}
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-blue-100 via-white to-transparent dark:from-blue-900/20 dark:via-slate-950 dark:to-slate-950"></div>
         
-        {/* Floating 3D Orbs */}
-        <div className="absolute top-1/4 left-1/4 -z-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 -z-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        {/* Floating 3D Orbs - Optimized with GPU acceleration */}
+        <div className="absolute top-1/4 left-1/4 -z-10 w-96 h-96 bg-blue-400/20 rounded-full blur-3xl animate-pulse will-change-transform"></div>
+        <div className="absolute bottom-1/4 right-1/4 -z-10 w-96 h-96 bg-indigo-400/20 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform"></div>
         
-        {/* Grid Pattern */}
-        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px] mask-image-gradient-to-b"></div>
+        {/* Grid Pattern - Simplified for performance */}
+        <div className="absolute inset-0 -z-10 bg-[linear-gradient(to_right,#80808005_1px,transparent_1px),linear-gradient(to_bottom,#80808005_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
 
         <div className="container px-4 md:px-6 space-y-8 relative z-10 text-center mx-auto">
           <div className="flex justify-center animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -58,25 +58,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Stats Section - Glassmorphism */}
+      {/* Stats Section - Optimized Glassmorphism */}
       <section className="py-12 relative z-20 -mt-20">
         <div className="container px-4 md:px-6 mx-auto">
-          <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-800 shadow-2xl rounded-3xl p-10 md:p-14">
+          <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border border-white/20 dark:border-slate-800 shadow-2xl rounded-3xl p-10 md:p-14 transition-all duration-300">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-slate-200 dark:divide-slate-800">
-              <div className="space-y-2 group">
-                <h3 className="text-4xl md:text-5xl font-black text-[#00366D] dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">1954</h3>
+              <div className="space-y-2 group cursor-default">
+                <h3 className="text-4xl md:text-5xl font-black text-[#0056B3] dark:text-blue-400 group-hover:scale-105 transition-transform duration-300 will-change-transform">1954</h3>
                 <p className="text-sm md:text-base text-slate-500 font-semibold tracking-wide uppercase">Since</p>
               </div>
-              <div className="space-y-2 group">
-                <h3 className="text-4xl md:text-5xl font-black text-[#00366D] dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">No.1</h3>
+              <div className="space-y-2 group cursor-default">
+                <h3 className="text-4xl md:text-5xl font-black text-[#0056B3] dark:text-blue-400 group-hover:scale-105 transition-transform duration-300 will-change-transform">No.1</h3>
                 <p className="text-sm md:text-base text-slate-500 font-semibold tracking-wide uppercase">Policy Bank</p>
               </div>
-              <div className="space-y-2 group">
-                <h3 className="text-4xl md:text-5xl font-black text-[#00366D] dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">Global</h3>
+              <div className="space-y-2 group cursor-default">
+                <h3 className="text-4xl md:text-5xl font-black text-[#0056B3] dark:text-blue-400 group-hover:scale-105 transition-transform duration-300 will-change-transform">Global</h3>
                 <p className="text-sm md:text-base text-slate-500 font-semibold tracking-wide uppercase">Leader</p>
               </div>
-              <div className="space-y-2 group">
-                <h3 className="text-4xl md:text-5xl font-black text-[#00366D] dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">ESG</h3>
+              <div className="space-y-2 group cursor-default">
+                <h3 className="text-4xl md:text-5xl font-black text-[#0056B3] dark:text-blue-400 group-hover:scale-105 transition-transform duration-300 will-change-transform">ESG</h3>
                 <p className="text-sm md:text-base text-slate-500 font-semibold tracking-wide uppercase">Sustainable</p>
               </div>
             </div>
@@ -106,17 +106,17 @@ export default function Home() {
         
         <div className="grid gap-10 md:grid-cols-3">
           {/* Feature 1 */}
-          <Link href="/recruit" className="group h-full perspective-1000">
-            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 rounded-[2rem]">
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-transparent opacity-50 dark:from-blue-900/20"></div>
-              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
-                <Briefcase className="h-32 w-32 text-[#00366D]" />
+          <Link href="/recruit" className="group h-full">
+            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-[2rem] will-change-transform">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-transparent opacity-50 dark:from-blue-900/10"></div>
+              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-300 group-hover:scale-110">
+                <Briefcase className="h-32 w-32 text-[#0056B3]" />
               </div>
               <CardHeader className="pt-10 px-8">
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#00366D]/10 text-[#00366D] group-hover:bg-[#00366D] group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-[#00366D]/30">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-[#0056B3]/10 text-[#0056B3] group-hover:bg-[#0056B3] group-hover:text-white transition-all duration-300 shadow-lg">
                   <TrendingUp className="h-8 w-8" />
                 </div>
-                <CardTitle className="text-2xl font-bold mb-2 group-hover:text-[#00366D] transition-colors">채용/후기 게시판</CardTitle>
+                <CardTitle className="text-2xl font-bold mb-2 group-hover:text-[#0056B3] transition-colors">채용/후기 게시판</CardTitle>
                 <CardDescription className="text-base">
                   최신 채용 흐름을 파악하고 합격자들의 데이터를 기반으로 전략을 세우세요.
                 </CardDescription>
@@ -147,14 +147,14 @@ export default function Home() {
           </Link>
           
           {/* Feature 2 */}
-          <Link href="/exam" className="group h-full perspective-1000">
-            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:-rotate-1 rounded-[2rem]">
-              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-transparent to-transparent opacity-50 dark:from-indigo-900/20"></div>
-              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-125 group-hover:-rotate-12">
+          <Link href="/exam" className="group h-full">
+            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-[2rem] will-change-transform">
+              <div className="absolute inset-0 bg-gradient-to-br from-indigo-50/50 via-transparent to-transparent opacity-50 dark:from-indigo-900/10"></div>
+              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-300 group-hover:scale-110">
                 <PenTool className="h-32 w-32 text-indigo-600" />
               </div>
               <CardHeader className="pt-10 px-8">
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-indigo-600/30">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300 shadow-lg">
                   <BookOpen className="h-8 w-8" />
                 </div>
                 <CardTitle className="text-2xl font-bold mb-2 group-hover:text-indigo-600 transition-colors">필기 미니 시험</CardTitle>
@@ -188,14 +188,14 @@ export default function Home() {
           </Link>
 
           {/* Feature 3 */}
-          <Link href="/interview" className="group h-full perspective-1000">
-            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:rotate-1 rounded-[2rem]">
-              <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-transparent to-transparent opacity-50 dark:from-teal-900/20"></div>
-              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12">
+          <Link href="/interview" className="group h-full">
+            <Card className="h-full relative overflow-hidden border-none bg-white dark:bg-slate-900 shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 rounded-[2rem] will-change-transform">
+              <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 via-transparent to-transparent opacity-50 dark:from-teal-900/10"></div>
+              <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-all duration-300 group-hover:scale-110">
                 <MessageSquare className="h-32 w-32 text-teal-600" />
               </div>
               <CardHeader className="pt-10 px-8">
-                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-teal-600/30">
+                <div className="mb-6 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-teal-100 text-teal-600 group-hover:bg-teal-600 group-hover:text-white transition-all duration-300 shadow-lg">
                   <Users className="h-8 w-8" />
                 </div>
                 <CardTitle className="text-2xl font-bold mb-2 group-hover:text-teal-600 transition-colors">면접 트레이닝</CardTitle>
